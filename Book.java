@@ -19,4 +19,5 @@ public class Book
 	{
 		return _type;
 	}
+	//	OLAR
 }
