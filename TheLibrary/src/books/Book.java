@@ -10,7 +10,7 @@ public class Book {
 	{
 		_id 		= ID;
 		_title 		= Title;
-		_type 		= type;
+		_type 		= Type;
 		_content	= Content;
 	}
 	
