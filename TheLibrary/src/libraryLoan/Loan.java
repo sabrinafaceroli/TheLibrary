@@ -1,27 +1,32 @@
 package libraryLoan;
 
-import libraryBook.Book;
-import libraryUsers.User;
 
 public class Loan {
-	private Book _book;
-	private User _user;
+	private int _bookID;
+	private int _userID;
 	private int _lentDate, _deliveryDate;
 	
-	public Loan(Book book, User user, int currentTime){
-		this._book = book;
-		this._user = user;
+	public Loan(int book, int user, int currentTime){
+		this._bookID = book;
+		this._userID = user;
 		// verificar se User prof ou aluno ou comunidade e depois
 		// settar as datas aqui com base no currentTime
 
 	}
 	
-	//Getters and Setters
-	public User getUser(){return this._user;}
+	public Loan(String csv){
+        String[] values = csv.split(",");
+        this._bookID = Integer.parseInt(values[0]);
+        this._userID = Integer.parseInt(values[1]);
+        //Adicionar os time stamps
+	}
 	
-	public Book getBook(){return this._book;}
+	//Getters and Setters
+	public int getUser(){return this._userID;}
+	
+	public int getBook(){return this._bookID;}
 	
 	public String toString(){
-		return _book.getID() + "|" + _user.getID();
+		return this._bookID + "," + this._userID;
 	}
 }
