@@ -14,7 +14,7 @@ public class Student extends User{
 	}
 	
 	public String toString(){
-		return super.toString() + "|" + this._course;
+		return super.toString() + "," + this._course;
 	}
 	
 	//Getters and Setters
