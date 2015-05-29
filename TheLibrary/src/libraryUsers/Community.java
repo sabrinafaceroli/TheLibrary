@@ -18,6 +18,6 @@ public class Community extends User{
 	}
 	
 	public String toString(){
-		return super.toString() + "|" + this._job;
+		return super.toString() + "," + this._job;
 	}
 }
