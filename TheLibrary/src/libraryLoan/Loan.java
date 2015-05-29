@@ -16,12 +16,12 @@ public class Loan {
 
 	}
 	
-	public String toString(){
-		return _book.getID() + "|" + _user.getID();
-	}
-	
 	//Getters and Setters
 	public User getUser(){return this._user;}
 	
 	public Book getBook(){return this._book;}
+	
+	public String toString(){
+		return _book.getID() + "|" + _user.getID();
+	}
 }

@@ -21,7 +21,7 @@ public class Professor extends User{
 	}
 	
 	public String toString(){
-		return super.toString() + "," + this._institute + "," + this._department;
+		return super.toString() + "|" + this._institute + "|" + this._department;
 	}
 	
 	//Getters and Setters
