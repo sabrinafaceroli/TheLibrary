@@ -23,6 +23,10 @@ public class Book {
         this._content= values[3];
 	}
 
+	public String toString(){
+		return "" + this._id + "," + this._title + "," + this._type + "," +this._content;
+	} 
+	
 	//Getters and Setter
 	public int getID(){return this._id;}
 	public void setID(int id){ this._id = id;}
@@ -30,7 +34,9 @@ public class Book {
 	public int getType(){return _type;}
 	public void setType(int type){this._type = type;}
 	
-	public String toString(){
-		return "" + this._id + "|" + this._title + "|" + this._type + "|" +this._content;
-	} 
+	public String getTitle(){return this._title;}
+	public void setTitle(String title){this._title = title;}
+	
+	public String getContent(){return this._content;}
+	public void setContent(String content){this._content = content;}
 }
