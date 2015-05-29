@@ -12,7 +12,16 @@ public class User {
 	private String _password;
 	private ArrayList<Loan> _loans;
 	
-	
+	public User(String csv)
+	{
+        String[] values = csv.split(",");
+        this._ID = Integer.parseInt(values[0]);
+        this._name = values[1];
+        this._document = values[2];
+        this._email = values[3];
+        this._password = values[4];
+	}
+
 	
 	User(int id, String name, String doc, String email, String password){
 		this._ID = id;
