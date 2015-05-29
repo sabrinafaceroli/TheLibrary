@@ -33,6 +33,9 @@ public class User {
 		
 	}
 	
+	public String toString(){
+		return "" + this._ID + "|" + this._name + "|" + this._document + "|" + this._email + "|" + this._password;
+	}
 	
 	//Getter and Setters
 	public int getID() {return _ID;}

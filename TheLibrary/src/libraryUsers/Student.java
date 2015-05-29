@@ -12,8 +12,12 @@ public class Student extends User{
 		super(id, name, doc, email, password);
 		this.setLoans(new ArrayList<Loan>(4));
 	}
-
-
+	
+	public String toString(){
+		return super.toString() + "|" + this._course;
+	}
+	
+	//Getters and Setters
 	public String getCourse() {return _course;}
 	public void setCourse(String _course) {this._course = _course;}
 

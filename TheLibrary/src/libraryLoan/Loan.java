@@ -8,12 +8,20 @@ public class Loan {
 	private User _user;
 	private int _lentDate, _deliveryDate;
 	
-	public Loan(String csv)
-	{
-//		String[] values = csv.split(",");
- //       this._id = Integer.parseInt(values[0]);
- //       this._title = values[1];
- //       this._type = Integer.parseInt(values[2]);
-  //      this._content= values[3]; Pra que criar um objeto aqui? passa a ID!
+	public Loan(Book book, User user, int currentTime){
+		this._book = book;
+		this._user = user;
+		// verificar se User prof ou aluno ou comunidade e depois
+		// settar as datas aqui com base no currentTime
+
+	}
+	
+	//Getters and Setters
+	public User getUser(){return this._user;}
+	
+	public Book getBook(){return this._book;}
+	
+	public String toString(){
+		return _book.getID() + "|" + _user.getID();
 	}
 }

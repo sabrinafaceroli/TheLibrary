@@ -23,19 +23,14 @@ public class Book {
         this._content= values[3];
 	}
 
-	//Getting things up!
+	//Getters and Setter
+	public int getID(){return this._id;}
+	public void setID(int id){ this._id = id;}
 	
-	public int getID(){
-		return _id;   }
+	public int getType(){return _type;}
+	public void setType(int type){this._type = type;}
 	
-	public String getTitle(){
-		return _title;      }
-	
-	public int getType(){
-		return _type;	}
-	
-	public String getContent(){
-		return _content;      }
-	//	OLAR
-	
+	public String toString(){
+		return "" + this._id + "|" + this._title + "|" + this._type + "|" +this._content;
+	} 
 }

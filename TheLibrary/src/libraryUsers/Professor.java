@@ -19,7 +19,12 @@ public class Professor extends User{
 		this.setInstitute(institute);
 		this.setDepartment(department);
 	}
-
+	
+	public String toString(){
+		return super.toString() + "|" + this._institute + "|" + this._department;
+	}
+	
+	//Getters and Setters
 	public String getDepartment() {return _department;}
 	public void setDepartment(String _department) {this._department = _department;}
 
