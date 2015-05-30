@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 //import java.util.List;
 
+
 import libraryBook.Book;
 import libraryLoan.Loan;
-import libraryUsers.User;
+import libraryUsers.*;
 
 public class ReadCSV {
 
@@ -52,15 +53,25 @@ public class ReadCSV {
 	{
 		ArrayList<User> list = new ArrayList<User>();
 		
-/*		try
+		try
 		{
 			BufferedReader br = new BufferedReader(new FileReader("libraryusers.csv"));
 	        String data;
-	        while((data = br.readLine()) != null) 
-	            list.add(new User(data));
-
+	        while((data = br.readLine()) != null)
+	        {
+	        	String[] val = data.split(",");
+	   
+	        	if(val[0] == "Community")
+	        		list.add(new Community(val));
+	        	else if(val[0] == "Professor")
+	        		list.add(new Professor(val));
+	        	else if(val[0] == "Student")
+	        		list.add(new Student(val));
+	        }
+	        
+	        br.close();
 		}
-		catch(IOException ex){}*/
+		catch(IOException ex){}
 		
 		return list;
 	}

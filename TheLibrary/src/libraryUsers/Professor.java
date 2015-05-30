@@ -20,6 +20,13 @@ public class Professor extends User{
 		this.setDepartment(department);
 	}
 	
+	public Professor(String[] values) {
+		super(Integer.parseInt(values[1]), values[2], values[3], values[4], values[5]);
+		this.setLoans(new ArrayList<Loan>(6));
+		this.setInstitute(values[6]);
+		this.setDepartment(values[7]);
+	}
+	
 	public String toString(){
 		return super.toString() + "," + this._institute + "," + this._department;
 	}

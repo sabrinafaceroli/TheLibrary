@@ -54,6 +54,8 @@ public class WriteCSV {
 			FileWriter fw = new FileWriter("librarybooks.csv");
 			for(User us : list)
 			{
+				fw.append(us.getClass().toString());
+				fw.append(",");
 				fw.append(us.toString());
 				fw.append("\n");
 			}
