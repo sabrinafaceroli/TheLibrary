@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 import libraryBook.Book;
 import libraryLoan.Loan;
@@ -22,6 +22,8 @@ public class ReadCSV {
 	        String data;
 	        while((data = br.readLine()) != null) 
 	            list.add(new Book(data));
+	        
+	        br.close();
 		}
 		catch(IOException ex){}
 		
@@ -38,6 +40,8 @@ public class ReadCSV {
 	        String data;
 	        while((data = br.readLine()) != null) 
 	            list.add(new Loan(data));
+	        
+	        br.close();
 		}
 		catch(IOException ex){}
 		
@@ -48,15 +52,15 @@ public class ReadCSV {
 	{
 		ArrayList<User> list = new ArrayList<User>();
 		
-		try
+/*		try
 		{
 			BufferedReader br = new BufferedReader(new FileReader("libraryusers.csv"));
 	        String data;
-	//        while((data = br.readLine()) != null) 
-//	            list.add(new User(data));
+	        while((data = br.readLine()) != null) 
+	            list.add(new User(data));
 
 		}
-		catch(IOException ex){}
+		catch(IOException ex){}*/
 		
 		return list;
 	}

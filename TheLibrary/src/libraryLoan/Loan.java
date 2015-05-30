@@ -27,6 +27,6 @@ public class Loan {
 	public int getBook(){return this._bookID;}
 	
 	public String toString(){
-		return this._bookID + "," + this._userID;
+		return this._bookID + "," + this._userID; //Tem que ter as datas aqui 
 	}
 }
