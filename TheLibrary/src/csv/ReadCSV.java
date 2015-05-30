@@ -12,9 +12,9 @@ import libraryUsers.User;
 
 public class ReadCSV {
 
-	public static List<Book> ReadCSVBook()
+	public static ArrayList<Book> ReadCSVBook()
 	{
-		List<Book> list = new ArrayList<Book>();
+		ArrayList<Book> list = new ArrayList<Book>();
 		
 		try
 		{
@@ -28,9 +28,9 @@ public class ReadCSV {
 		return list;
 	}
 	
-	public static List<Loan> ReadCSVLoan()
+	public static ArrayList<Loan> ReadCSVLoan()
 	{
-		List<Loan> list = new ArrayList<Loan>();
+		ArrayList<Loan> list = new ArrayList<Loan>();
 		
 		try
 		{
@@ -44,9 +44,9 @@ public class ReadCSV {
 		return list;
 	}
 	
-	public static List<User> ReadCSVUsers()
+	public static ArrayList<User> ReadCSVUsers()
 	{
-		List<User> list = new ArrayList<User>();
+		ArrayList<User> list = new ArrayList<User>();
 		
 		try
 		{
