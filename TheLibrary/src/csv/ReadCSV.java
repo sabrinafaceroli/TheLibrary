@@ -11,6 +11,7 @@ import libraryLoan.Loan;
 import libraryUsers.User;
 
 public class ReadCSV {
+
 	public static List<Book> ReadCSVBook()
 	{
 		List<Book> list = new ArrayList<Book>();
@@ -51,8 +52,9 @@ public class ReadCSV {
 		{
 			BufferedReader br = new BufferedReader(new FileReader("libraryusers.csv"));
 	        String data;
-	        while((data = br.readLine()) != null) 
-	            list.add(new User(data));
+	//        while((data = br.readLine()) != null) 
+//	            list.add(new User(data));
+
 		}
 		catch(IOException ex){}
 		

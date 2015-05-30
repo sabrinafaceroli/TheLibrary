@@ -1,16 +1,24 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 import libraryBook.*;
+import libraryLoan.*;
+import libraryUsers.*;
+
 
 public class TerminalLibrary {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Book> _books;
+		 ArrayList<Book> _books;
+		 ArrayList<User> _users;
+		 ArrayList<Loan> _loans;
+
+		
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Olá mundo !!! Digite Ola para continuar");
+		System.out.println("Bem vindo à biblioteca ");
 		String resp = sc.nextLine();
 		
 		if(resp.equalsIgnoreCase("ola"))

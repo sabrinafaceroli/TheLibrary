@@ -13,7 +13,7 @@ public class WriteCSV {
 	//The comma that separates data in CSV.
 	private static final String COMMA_DELIMITER = ",";
 	
-	public void WriteCSVBook(List<Book> list)
+	public static void WriteCSVBook(List<Book> list)
 	{
 		try
 		{
@@ -36,7 +36,7 @@ public class WriteCSV {
 		} catch(IOException ex){}
 	}
 	
-	public void WriteCSVLoan(List<Loan> list)
+	public static void WriteCSVLoan(List<Loan> list)
 	{
 		try
 		{//TODO
@@ -59,7 +59,7 @@ public class WriteCSV {
 		} catch(IOException ex){}
 	}
 	
-	public void WriteCSVUsers(List<User> list)
+	public static void WriteCSVUsers(List<User> list)
 	{
 		try
 		{
