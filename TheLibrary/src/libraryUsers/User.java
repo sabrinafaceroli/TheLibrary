@@ -53,7 +53,6 @@ public class User {
 	public String getPassword() {return _password;}
 	public void setPassword(String _password) {this._password = _password;}
 
-
 	public ArrayList<Loan> getLoans() {return _loans;}
 	public void setLoans(ArrayList<Loan> _loans) {this._loans = _loans;}
 	

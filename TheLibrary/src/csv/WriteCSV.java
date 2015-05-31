@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import libraryBook.Book;
 import libraryLoan.Loan;
-import libraryUsers.User;
+import libraryUsers.*;
 
 public class WriteCSV {
 
@@ -34,7 +34,7 @@ public class WriteCSV {
 	{
 		try
 		{//TODO
-			FileWriter fw = new FileWriter("librarybooks.csv");
+			FileWriter fw = new FileWriter("libraryloan.csv");
 			for(Loan lo : list)
 			{
 				fw.append(lo.toString());
@@ -51,10 +51,16 @@ public class WriteCSV {
 	{
 		try
 		{
-			FileWriter fw = new FileWriter("librarybooks.csv");
+			FileWriter fw = new FileWriter("libraryusers.csv");
 			for(User us : list)
 			{
-				fw.append(us.getClass().toString());
+				if(us instanceof Professor)
+					fw.append("Professor");
+				else if(us instanceof Community)
+					fw.append("Community");
+				else
+					fw.append("Student");
+				
 				fw.append(",");
 				fw.append(us.toString());
 				fw.append("\n");
