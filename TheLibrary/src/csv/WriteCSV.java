@@ -17,7 +17,7 @@ public class WriteCSV {
 	{
 		try
 		{
-			FileWriter fw = new FileWriter("librarybooks.csv");
+			FileWriter fw = new FileWriter("src/librarybooks.csv");
 			for(Book bk : list)
 			{
 				fw.append(bk.toString());
@@ -34,7 +34,7 @@ public class WriteCSV {
 	{
 		try
 		{//TODO
-			FileWriter fw = new FileWriter("libraryloan.csv");
+			FileWriter fw = new FileWriter("src/libraryloan.csv");
 			for(Loan lo : list)
 			{
 				fw.append(lo.toString());
@@ -51,7 +51,7 @@ public class WriteCSV {
 	{
 		try
 		{
-			FileWriter fw = new FileWriter("libraryusers.csv");
+			FileWriter fw = new FileWriter("src/libraryusers.csv");
 			for(User us : list)
 			{
 				if(us instanceof Professor)

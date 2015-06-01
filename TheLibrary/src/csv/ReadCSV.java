@@ -19,7 +19,7 @@ public class ReadCSV {
 		
 		try
 		{
-			BufferedReader br = new BufferedReader(new FileReader("librarybooks.csv"));
+			BufferedReader br = new BufferedReader(new FileReader("src/librarybooks.csv"));
 	        String data;
 	        while((data = br.readLine()) != null) 
 	            list.add(new Book(data));
@@ -37,7 +37,7 @@ public class ReadCSV {
 		
 		try
 		{
-			BufferedReader br = new BufferedReader(new FileReader("libraryloans.csv"));
+			BufferedReader br = new BufferedReader(new FileReader("src/libraryloans.csv"));
 	        String data;
 	        while((data = br.readLine()) != null) 
 	            list.add(new Loan(data, SystemTime));
@@ -55,23 +55,24 @@ public class ReadCSV {
 		
 		try
 		{
-			BufferedReader br = new BufferedReader(new FileReader("libraryusers.csv"));
+			BufferedReader br = new BufferedReader(new FileReader("src/libraryusers.csv"));
 	        String data;
 	        while((data = br.readLine()) != null)
 	        {
 	        	String[] val = data.split(",");
-	   
-	        	if(val[0] == "Community")
+	        	
+	        	if(val[0].equals("Community"))
 	        		list.add(new Community(val));
-	        	else if(val[0] == "Professor")
+	        	else if(val[0].equals("Professor"))
 	        		list.add(new Professor(val));
-	        	else if(val[0] == "Student")
+	        	else if(val[0].equals("Student"))
 	        		list.add(new Student(val));
+	        	System.out.println("user: " + val);
 	        }
 	        
 	        br.close();
 		}
-		catch(IOException ex){}
+		catch(IOException ex){ex.printStackTrace();}
 		
 		return list;
 	}
