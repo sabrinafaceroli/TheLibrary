@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.stream.Collectors;
 
 import csv.ReadCSV;
@@ -165,12 +166,15 @@ public class TerminalLibrary{
 		
 		RegisterLoans_Btn.setOnAction((event) -> {
 			
-		/*	List<User> us = 
+			List<User> ls = 
 			TheLibrary._users
 			.stream()
 			.filter(us -> us.getID() == Integer.parseInt(IDUsuarioLoan_TextField.getText()))
+			.limit(1)
 			.collect(Collectors.toList());
-			*///add na lista
+			
+			
+			//add na lista
 			
 			IDUsuarioLoan_TextField.clear();
 			IDLivroLoan_TextField.clear();
