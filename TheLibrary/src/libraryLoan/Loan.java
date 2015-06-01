@@ -11,17 +11,22 @@ public class Loan {
 	
 	public Loan(int book, int user, String lentDate, int userType){
 		String[] date = lentDate.split("/");
-		
+		System.out.println(lentDate);
+	
 		this._bookID = book;
 		this._userID = user;
-		this._lentDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
-		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
+		this._lentDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
+		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
 		this._isLate = this.checkTardiness(lentDate);
+		
+		System.out.println(this._lentDate);
 	}
 	
 	public Loan(String csv, String SystemTime){
 		String[] date;
         String[] values = csv.split(",");
+
+
         this._bookID = Integer.parseInt(values[0]);
         this._userID = Integer.parseInt(values[1]);
         date = values[2].split("/");
@@ -29,6 +34,8 @@ public class Loan {
         date = values[3].split("/");
         this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
         this._isLate = this.checkTardiness(SystemTime);
+        
+        
     }
 	
 	private boolean checkTardiness(String SystemTime){

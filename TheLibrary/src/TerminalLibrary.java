@@ -107,10 +107,11 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllUsers_Btn.setOnAction((event) -> {
+			ShowUsersArea.clear();
 			TheLibrary._users
 			.stream()
 			.forEach(us -> {
-				ShowUsersArea.appendText(us.toString());
+				ShowUsersArea.appendText(us.toString() + "\n");
 			});
 		});
 		
@@ -119,18 +120,18 @@ public class TerminalLibrary{
 			
 			if(_typeUser == 1)
 			{
-				us = new Student(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+				us = new Student((TheLibrary._id + 1), NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
 							EmailUser_TextField.getText(), SenhaUser_TextField.getText(), CursoUser_TextField.getText());
 			}
 			else if(_typeUser == 2)
 			{
-				us = new Professor(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+				us = new Professor((TheLibrary._id + 1), NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
 								EmailUser_TextField.getText(), SenhaUser_TextField.getText(), InstitutoUser_TextField.getText(), 
 								DepartamentoUser_TextField.getText());
 			}
 			else
 			{
-				us = new Community(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+				us = new Community((TheLibrary._id + 1), NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
 						EmailUser_TextField.getText(), SenhaUser_TextField.getText(), EmpregoUser_TextField.getText()); 
 			}
 			
@@ -147,10 +148,11 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllBooks_Btn.setOnAction((event) -> {
+			ShowBooksArea.clear();
 			TheLibrary._books
 			.stream()
 			.forEach(bk -> {
-				ShowBooksArea.appendText(bk.toString());
+				ShowBooksArea.appendText(bk.toString() + "\n");
 			});
 		});
 		
@@ -170,10 +172,11 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllLoans_Btn.setOnAction((event) -> {
+			ShowLoansArea.clear();
 			TheLibrary._loans
 			.stream()
 			.forEach(lo -> {
-				ShowLoansArea.appendText(lo.toString());
+				ShowLoansArea.appendText(lo.toString() + "\n");
 			});
 		});
 		
@@ -189,6 +192,7 @@ public class TerminalLibrary{
 			User us = ls.get(0);
 			Loan ln;
 			
+			System.out.println(TheLibrary.sysTime);
 			if(us instanceof Professor)
 				ln = new Loan(Integer.parseInt(IDLivroLoan_TextField.getText()), Integer.parseInt(IDUsuarioLoan_TextField.getText()), TheLibrary.sysTime, 1);
 			else if(us instanceof Student)

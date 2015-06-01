@@ -41,7 +41,13 @@ public class TheLibrary extends Application {
 		_books = ReadCSV.ReadCSVBook();
 		_users = ReadCSV.ReadCSVUsers();
 		
+		_id = _users.get(_users.size() - 1).getID();
+		
 		launch(args);
+		
+		WriteCSV.WriteCSVBook(_books);
+		WriteCSV.WriteCSVUsers(_users);
+		WriteCSV.WriteCSVLoan(_loans);
 	}
 	
 	public TheLibrary()
