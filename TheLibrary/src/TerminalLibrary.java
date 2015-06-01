@@ -107,30 +107,34 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllUsers_Btn.setOnAction((event) -> {
-			
+			TheLibrary._users
+			.stream()
+			.forEach(us -> {
+				ShowUsersArea.appendText(us.toString());
+			});
 		});
 		
 		RegisterUsers_Btn.setOnAction((event) -> {
+			User us;
 			
 			if(_typeUser == 1)
 			{
-				Student st = new Student(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
-								EmailUser_TextField.getText(), SenhaUser_TextField.getText(), CursoUser_TextField.getText());
-				//add na lista
+				us = new Student(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+							EmailUser_TextField.getText(), SenhaUser_TextField.getText(), CursoUser_TextField.getText());
 			}
 			else if(_typeUser == 2)
 			{
-				Professor pf = new Professor(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+				us = new Professor(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
 								EmailUser_TextField.getText(), SenhaUser_TextField.getText(), InstitutoUser_TextField.getText(), 
 								DepartamentoUser_TextField.getText());
-				//add na lista
 			}
 			else
 			{
-				Community cm = new Community(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
-						EmailUser_TextField.getText(), SenhaUser_TextField.getText(), EmpregoUser_TextField.getText());
-				//add na lista 
+				us = new Community(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+						EmailUser_TextField.getText(), SenhaUser_TextField.getText(), EmpregoUser_TextField.getText()); 
 			}
+			
+			TheLibrary._users.add(us);
 			
 			NomeUser_TextField.clear();
 			DocumentoUser_TextField.clear();
@@ -143,14 +147,19 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllBooks_Btn.setOnAction((event) -> {
-			
+			TheLibrary._books
+			.stream()
+			.forEach(bk -> {
+				ShowBooksArea.appendText(bk.toString());
+			});
 		});
 		
 		RegisterBooks_Btn.setOnAction((event) -> {
 			
 			Book bk = new Book(Integer.parseInt(IDBook_TextField.getText()), NomeBook_TextField.getText(), Integer.parseInt(TipoBook_TextField.getText()),
 								AutorBook_TextField.getText(), EditoraBook_TextField.getText(), Integer.parseInt(EdicaoBook_TextField.getText()));	
-			//add na lista
+			
+			TheLibrary._books.add(bk);
 			
 			IDBook_TextField.clear();
 			NomeBook_TextField.clear();
@@ -161,7 +170,11 @@ public class TerminalLibrary{
 		});
 		
 		ShowAllLoans_Btn.setOnAction((event) -> {
-			
+			TheLibrary._loans
+			.stream()
+			.forEach(lo -> {
+				ShowLoansArea.appendText(lo.toString());
+			});
 		});
 		
 		RegisterLoans_Btn.setOnAction((event) -> {
@@ -173,8 +186,17 @@ public class TerminalLibrary{
 			.limit(1)
 			.collect(Collectors.toList());
 			
+			User us = ls.get(0);
+			Loan ln;
 			
-			//add na lista
+			if(us instanceof Professor)
+				ln = new Loan(Integer.parseInt(IDLivroLoan_TextField.getText()), Integer.parseInt(IDUsuarioLoan_TextField.getText()), TheLibrary.sysTime, 1);
+			else if(us instanceof Student)
+				ln = new Loan(Integer.parseInt(IDLivroLoan_TextField.getText()), Integer.parseInt(IDUsuarioLoan_TextField.getText()), TheLibrary.sysTime, 2);
+			else
+				ln = new Loan(Integer.parseInt(IDLivroLoan_TextField.getText()), Integer.parseInt(IDUsuarioLoan_TextField.getText()), TheLibrary.sysTime, 3);
+			
+			TheLibrary._loans.add(ln);
 			
 			IDUsuarioLoan_TextField.clear();
 			IDLivroLoan_TextField.clear();
