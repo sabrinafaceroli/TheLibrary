@@ -9,15 +9,14 @@ public class Loan {
 	private GregorianCalendar _lentDate, _deliveryDate;
 	private boolean _isLate;
 	
-	public Loan(int book, int user, String lentDate, String deliveryDate, String SystemTime){
+	public Loan(int book, int user, String lentDate, int userType){
 		String[] date = lentDate.split("/");
 		
 		this._bookID = book;
 		this._userID = user;
 		this._lentDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
-		date = deliveryDate.split("/");
 		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
-		this._isLate = this.checkTardiness(SystemTime);
+		this._isLate = this.checkTardiness(lentDate);
 	}
 	
 	public Loan(String csv, String SystemTime){
