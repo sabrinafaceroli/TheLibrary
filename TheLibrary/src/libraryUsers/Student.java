@@ -6,7 +6,7 @@ import libraryLoan.Loan;
 
 public class Student extends User{
 	private String _course;
-	
+	private static final int totalLendDays = 15;
 	
 	Student(int id, String name, String doc, String email, String password) {
 		super(id, name, doc, email, password);
@@ -25,5 +25,7 @@ public class Student extends User{
 	//Getters and Setters
 	public String getCourse() {return _course;}
 	public void setCourse(String _course) {this._course = _course;}
+
+	public static int getLenddays() {return totalLendDays;}
 
 }

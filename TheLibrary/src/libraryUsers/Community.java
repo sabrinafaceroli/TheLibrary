@@ -6,6 +6,7 @@ import libraryLoan.Loan;
 
 public class Community extends User{
 	private String _job;
+	private static final int totalLendDays = 15;
 	
 	Community(int id, String name, String doc, String email, String password) {
 		super(id, name, doc, email, password);
@@ -27,4 +28,6 @@ public class Community extends User{
 	public String toString(){
 		return super.toString() + "," + this._job;
 	}
+	
+	public static int getLenddays() {return totalLendDays;}
 }

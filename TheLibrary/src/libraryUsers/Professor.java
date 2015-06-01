@@ -7,6 +7,7 @@ import libraryLoan.Loan;
 public class Professor extends User{
 	private String _institute;
 	private String _department;
+	private static final int totalLendDays = 60;
 	
 	Professor(int id, String name, String doc, String email, String password) {
 		super(id, name, doc, email, password);
@@ -21,10 +22,10 @@ public class Professor extends User{
 	}
 	
 	public Professor(String[] values) {
-		super(Integer.parseInt(values[1]), values[2], values[3], values[4], values[5]);
+		super(Integer.parseInt(values[0]), values[1], values[2], values[3], values[4]);
 		this.setLoans(new ArrayList<Loan>(6));
-		this.setInstitute(values[6]);
-		this.setDepartment(values[7]);
+		this.setInstitute(values[5]);
+		this.setDepartment(values[6]);
 	}
 	
 	public String toString(){
@@ -37,5 +38,7 @@ public class Professor extends User{
 
 	public String getInstitute() {return _institute;}
 	public void setInstitute(String _institute) {this._institute = _institute;}
+
+	public static int getLenddays() {return totalLendDays;}
 		
 }
