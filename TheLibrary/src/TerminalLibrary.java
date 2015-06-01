@@ -22,7 +22,7 @@ public class TerminalLibrary{
 	@FXML
 	private Button Users_Btn, Books_Btn, Loans_Btn, StudentReg_Btn, ProfessorReg_Btn, CommunityReg_Btn, ShowAllUsers_Btn,
 					RegisterUsers_Btn, ShowAllBooks_Btn, RegisterBooks_Btn, ShowAllLoans_Btn, RegisterLoans_Btn,
-					SaveDate_Btn;
+					SaveDate_Btn, ReturnBook_Btn;
 	
 	@FXML
 	private HBox Curso_Hbox, Departamento_Hbox, Instituto_Hbox, Emprego_Hbox;
@@ -111,7 +111,7 @@ public class TerminalLibrary{
 			TheLibrary._users
 			.stream()
 			.forEach(us -> {
-				ShowUsersArea.appendText(us.toString() + "\n");
+				ShowUsersArea.appendText(us.toStringArea() + "\n");
 			});
 		});
 		
@@ -152,7 +152,7 @@ public class TerminalLibrary{
 			TheLibrary._books
 			.stream()
 			.forEach(bk -> {
-				ShowBooksArea.appendText(bk.toString() + "\n");
+				ShowBooksArea.appendText(bk.toStringArea() + "\n");
 			});
 		});
 		
@@ -176,7 +176,7 @@ public class TerminalLibrary{
 			TheLibrary._loans
 			.stream()
 			.forEach(lo -> {
-				ShowLoansArea.appendText(lo.toString() + "\n");
+				ShowLoansArea.appendText(lo.toStringArea() + "\n");
 			});
 		});
 		
@@ -192,7 +192,6 @@ public class TerminalLibrary{
 			User us = ls.get(0);
 			Loan ln;
 			
-			System.out.println(TheLibrary.sysTime);
 			if(us instanceof Professor)
 				ln = new Loan(Integer.parseInt(IDLivroLoan_TextField.getText()), Integer.parseInt(IDUsuarioLoan_TextField.getText()), TheLibrary.sysTime, 1);
 			else if(us instanceof Student)
@@ -204,6 +203,10 @@ public class TerminalLibrary{
 			
 			IDUsuarioLoan_TextField.clear();
 			IDLivroLoan_TextField.clear();
+		});
+		
+		ReturnBook_Btn.setOnAction((event) -> {
+			//TODO: CONFIGURE O BOTÃO AQUIIIIIIIIIIIIIIIIII
 		});
 	}
 }

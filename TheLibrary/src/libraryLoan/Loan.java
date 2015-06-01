@@ -11,12 +11,17 @@ public class Loan {
 	
 	public Loan(int book, int user, String lentDate, int userType){
 		String[] date = lentDate.split("/");
-		System.out.println(lentDate);
+		int n = 0;
 	
 		this._bookID = book;
 		this._userID = user;
+		if(userType == 1)
+			n = 60;
+		else 
+			n = 15;
+	
 		this._lentDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
-		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
+		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])+n);
 		this._isLate = this.checkTardiness(lentDate);
 		
 		System.out.println(this._lentDate);
@@ -66,5 +71,18 @@ public class Loan {
 		
 		return this._bookID + "," + this._userID + "," + lentdate + "," 
 				+ deliverydate + "," +this._isLate; 
+	}
+	
+	public String toStringArea()
+	{
+		String lentdate, deliverydate;
+		lentdate = _lentDate.get(GregorianCalendar.YEAR) + "/" +_lentDate.get(GregorianCalendar.MONTH) + "/"
+				+ _lentDate.get(GregorianCalendar.DAY_OF_MONTH);
+		
+		deliverydate = _deliveryDate.get(GregorianCalendar.YEAR) + "/" +_deliveryDate.get(GregorianCalendar.MONTH) + "/"
+				+ _deliveryDate.get(GregorianCalendar.DAY_OF_MONTH);
+		
+		return "ID do Livro: " + this._bookID + "\n ID do Usuario: " + this._userID + "\n Data de Empréstimo: " + 
+			lentdate + ", Data para Devolução: " + deliverydate;
 	}
 }

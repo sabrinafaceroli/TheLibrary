@@ -37,6 +37,12 @@ public class User {
 		return "" + this._ID + "," + this._name + "," + this._document + "," + this._email + "," + this._password;
 	}
 	
+	public String toStringArea()
+	{
+		return "ID: " + this._ID + ", Nome: " + this._name + "\n Documento: " + this._document + ", Email: " + this._email + ", Senha: " 
+				+ this._password;
+	}
+	
 	//Getter and Setters
 	public int getID() {return _ID;}
 	public void setID(int _ID) {this._ID = _ID;}

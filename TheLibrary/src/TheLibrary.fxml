@@ -161,6 +161,7 @@
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Button fx:id="ShowAllLoans_Btn" mnemonicParsing="false" text="Listar Todos" />
+                                    <Button fx:id="ReturnBook_Btn" mnemonicParsing="false" text="Devolver Livro" />
                                  </children>
                               </HBox>
                               <VBox prefHeight="200.0" prefWidth="100.0">

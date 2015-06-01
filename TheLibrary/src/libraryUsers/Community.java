@@ -29,5 +29,10 @@ public class Community extends User{
 		return super.toString() + "," + this._job;
 	}
 	
+	public String toStringArea()
+	{
+		return super.toStringArea() + ", Emprego: " + this._job;
+	}
+	
 	public static int getLenddays() {return totalLendDays;}
 }

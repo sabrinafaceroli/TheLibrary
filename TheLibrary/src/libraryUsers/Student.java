@@ -17,10 +17,16 @@ public class Student extends User{
 	public Student(String[] values) {
 		super(Integer.parseInt(values[1]), values[2], values[3], values[4], values[5]);
 		this.setLoans(new ArrayList<Loan>(4));
+		this._course = values[6];
 	}
 	
 	public String toString(){
 		return super.toString() + "," + this._course;
+	}
+	
+	public String toStringArea()
+	{
+		return super.toStringArea() + ", Curso: " + this._course;
 	}
 	
 	//Getters and Setters

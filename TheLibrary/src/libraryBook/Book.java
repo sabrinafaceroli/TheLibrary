@@ -35,6 +35,12 @@ public class Book {
 				"," + this._publisher + "," + this._edition;
 	} 
 	
+	public String toStringArea()
+	{
+		return "ID: " + this._id + ", Titulo: " + this._title + ", Tipo: " + this._type + "\n Autor: " + this._author +
+					", Editora: " + this._publisher + ", Edição: " + this._edition;
+	}
+	
 	//Getters and Setter
 	public int getID(){return this._id;}
 	public void setID(int id){ this._id = id;}

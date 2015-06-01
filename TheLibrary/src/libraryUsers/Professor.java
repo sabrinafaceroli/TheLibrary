@@ -32,6 +32,11 @@ public class Professor extends User{
 		return super.toString() + "," + this._institute + "," + this._department;
 	}
 	
+	public String toStringArea()
+	{
+		return super.toStringArea() + ", Instituto: " + this._institute + ", Departamento: " + this._department;
+	}
+	
 	//Getters and Setters
 	public String getDepartment() {return _department;}
 	public void setDepartment(String _department) {this._department = _department;}
