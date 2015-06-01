@@ -165,14 +165,12 @@ public class TerminalLibrary{
 		
 		RegisterLoans_Btn.setOnAction((event) -> {
 			
-			/*String us = 
+		/*	List<User> us = 
 			TheLibrary._users
 			.stream()
 			.filter(us -> us.getID() == Integer.parseInt(IDUsuarioLoan_TextField.getText()))
-			.limit(1)
-			.getClass();
-			*/
-			//add na lista
+			.collect(Collectors.toList());
+			*///add na lista
 			
 			IDUsuarioLoan_TextField.clear();
 			IDLivroLoan_TextField.clear();

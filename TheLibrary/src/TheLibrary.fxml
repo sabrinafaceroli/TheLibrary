@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" minHeight="470.0" minWidth="600.0" prefHeight="470.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TerminalLibrary">
+   <children>
+      <SplitPane dividerPositions="0.06937799043062201" layoutX="180.0" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="440.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="27.0" prefWidth="598.0">
+               <children>
+                  <HBox fx:id="MenuLayout" layoutX="-35.0" layoutY="-32.0" prefHeight="32.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="Users_Btn" disable="true" mnemonicParsing="false" text="Usuarios" />
+                        <Button fx:id="Books_Btn" disable="true" mnemonicParsing="false" text="Livros" />
+                        <Button fx:id="Loans_Btn" disable="true" mnemonicParsing="false" text="Emprestimos" />
+                        <Label text="                       " />
+                        <TextField fx:id="Data_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="-Infinity" prefHeight="20.0" prefWidth="100.0" />
+                        <Label text="    " />
+                        <Button fx:id="SaveDate_Btn" mnemonicParsing="false" text="Salvar Data" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <VBox fx:id="UsersLayout" layoutX="192.0" layoutY="100.0" prefHeight="558.0" prefWidth="598.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="ChooseUsers" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Selecione o tipo de usuário para cadastrar ou clique para listar todos os Usuários:" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="StudentReg_Btn" mnemonicParsing="false" text="Estudante" />
+                                    <Button fx:id="ProfessorReg_Btn" mnemonicParsing="false" text="Professor" />
+                                    <Button fx:id="CommunityReg_Btn" mnemonicParsing="false" text="Comunidade" />
+                                    <Button fx:id="ShowAllUsers_Btn" mnemonicParsing="false" text="Listar Todos" />
+                                 </children>
+                              </HBox>
+                              <VBox fx:id="RegisterArea_Vbox" prefHeight="200.0" prefWidth="100.0" visible="false">
+                                 <children>
+                                    <HBox fx:id="Name_Hbox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Nome:  " />
+                                          <TextField fx:id="NomeUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Document_Hbox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Documento:" />
+                                          <TextField fx:id="DocumentoUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="300.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Email_Hbox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Email: " />
+                                          <TextField fx:id="EmailUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="350.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Senha_Hbox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Senha:  " />
+                                          <TextField fx:id="SenhaUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Emprego_Hbox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Emprego: " />
+                                          <TextField fx:id="EmpregoUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Instituto_Hbox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Instituto: " />
+                                          <TextField fx:id="InstitutoUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Departamento_Hbox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Departamento: " />
+                                          <TextField fx:id="DepartamentoUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Curso_Hbox" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Curso:  " />
+                                          <TextField fx:id="CursoUser_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="RegisterUsers_Btn" mnemonicParsing="false" text="Registrar" />
+                                    <TextArea fx:id="ShowUsersArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="BooksLayout" prefHeight="558.0" prefWidth="598.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="ChooseUsers1" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Realize aqui um registro de livro ou clique para listar todos os Livros:" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="ShowAllBooks_Btn" mnemonicParsing="false" text="Listar Todos" />
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox fx:id="Name_Hbox1" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="ID: " />
+                                          <TextField fx:id="IDBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Document_Hbox1" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Nome:  " />
+                                          <TextField fx:id="NomeBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="300.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Email_Hbox1" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Tipo:   " />
+                                          <TextField fx:id="TipoBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="50.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Senha_Hbox1" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Autor: " />
+                                          <TextField fx:id="AutorBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Senha_Hbox11" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Editora: " />
+                                          <TextField fx:id="EditoraBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Senha_Hbox12" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Edicao: " />
+                                          <TextField fx:id="EdicaoBook_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="RegisterBooks_Btn" mnemonicParsing="false" text="Registrar" />
+                                    <TextArea fx:id="ShowBooksArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children></VBox>
+                  <VBox fx:id="LoansLayout" prefHeight="558.0" prefWidth="598.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox fx:id="ChooseUsers11" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Realize o registro do empréstimo ou liste todos os empréstimos:  " />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="ShowAllLoans_Btn" mnemonicParsing="false" text="Listar Todos" />
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox fx:id="Name_Hbox11" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="ID do Usuário: " />
+                                          <TextField fx:id="IDUsuarioLoan_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="400.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="Document_Hbox11" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="ID do Livro: " />
+                                          <TextField fx:id="IDLivroLoan_TextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="300.0" />
+                                       </children>
+                                    </HBox>
+                                    <Button fx:id="RegisterLoans_Btn" mnemonicParsing="false" text="Registrar" />
+                                    <TextArea fx:id="ShowLoansArea" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children></VBox>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
