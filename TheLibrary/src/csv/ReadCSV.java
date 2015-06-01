@@ -31,7 +31,7 @@ public class ReadCSV {
 		return list;
 	}
 	
-	public static ArrayList<Loan> ReadCSVLoan()
+	public static ArrayList<Loan> ReadCSVLoan(String SystemTime)
 	{
 		ArrayList<Loan> list = new ArrayList<Loan>();
 		
@@ -40,7 +40,7 @@ public class ReadCSV {
 			BufferedReader br = new BufferedReader(new FileReader("libraryloans.csv"));
 	        String data;
 	        while((data = br.readLine()) != null) 
-	            list.add(new Loan(data));
+	            list.add(new Loan(data, SystemTime));
 	        
 	        br.close();
 		}
