@@ -13,7 +13,7 @@ public class Community extends User{
 		this.setLoans(new ArrayList<Loan>(2));
 	}
 	
-	Community(int id, String name, String doc, String email, String password, String job) {
+	public Community(int id, String name, String doc, String email, String password, String job) {
 		super(id, name, doc, email, password);
 		this._job = job;
 		this.setLoans(new ArrayList<Loan>(2));

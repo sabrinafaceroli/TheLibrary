@@ -1,135 +1,181 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 
-import csv.WriteCSV;
-import libraryBook.*;
-import libraryLoan.*;
+import csv.ReadCSV;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import libraryLoan.Loan;
 import libraryUsers.*;
+import libraryBook.Book;
 
-
-public class TerminalLibrary {
-
-	public static void main(String[] args) {
+public class TerminalLibrary{
+	
+	private int _typeUser; //Para controlar o tipo de registro. 1 - Estudante, 2 - Professor, 3 - Comunidade
+	
+	@FXML
+	private VBox UsersLayout, BooksLayout, LoansLayout, RegisterArea_Vbox, ChooseUser;
+	
+	@FXML
+	private Button Users_Btn, Books_Btn, Loans_Btn, StudentReg_Btn, ProfessorReg_Btn, CommunityReg_Btn, ShowAllUsers_Btn,
+					RegisterUsers_Btn, ShowAllBooks_Btn, RegisterBooks_Btn, ShowAllLoans_Btn, RegisterLoans_Btn,
+					SaveDate_Btn;
+	
+	@FXML
+	private HBox Curso_Hbox, Departamento_Hbox, Instituto_Hbox, Emprego_Hbox;
+	
+	@FXML
+	private TextField NomeUser_TextField, DocumentoUser_TextField, EmailUser_TextField, SenhaUser_TextField, EmpregoUser_TextField,
+						InstitutoUser_TextField, DepartamentoUser_TextField, CursoUser_TextField, IDBook_TextField, NomeBook_TextField,
+						TipoBook_TextField, AutorBook_TextField, EditoraBook_TextField, EdicaoBook_TextField, IDUsuarioLoan_TextField, IDLivroLoan_TextField, Data_TextField;
+	
+	@FXML
+	private TextArea ShowUsersArea, ShowBooksArea, ShowLoansArea;
+	
+	@FXML
+	private void initialize()
+	{
+		UsersLayout.setVisible(false);
+		BooksLayout.setVisible(false);
+		LoansLayout.setVisible(false);
 		
-		String sysTime = args[0];
-		ArrayList<Book> _books = new ArrayList<Book>();
-		ArrayList<User> _users = new ArrayList<User>();
-		ArrayList<Loan> _loans = new ArrayList<Loan>();
-		String insertion[];
-		int choice, id = 1;
+		//Eventos de todos os botões
 		
-		insertion =  new String[10];
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Bem vindo à Biblioteca Orientada a Objetos!!!");
-		
-		do{
-			System.out.println("Digite :");
-			System.out.println(" 1 - Para adicionar um Usuário");
-			System.out.println(" 2 - Para adicionar um Livro");
-			System.out.println(" 3 - Para adicionar um Empréstimo");
+		SaveDate_Btn.setOnAction((event) -> {
 			
-			choice = Integer.parseInt(sc.nextLine());
-			if(choice == 1){
-				System.out.println("\t 11 - Para o Usuário ser um Professor");
-				System.out.println("\t 12 - Para o Usuário ser um Aluno");
-				System.out.println("\t 13 - Para o Usuário ser um Pessoa da Comunidade");
-				choice = Integer.parseInt(sc.nextLine());
-				if(choice == 11){
-					insertion[0] = 1000000 + "";
-					System.out.println("\t\tDigite o nome do professor:");
-					insertion[1] = sc.nextLine();
-					System.out.println("\t\tDigite o documento do professor:");
-					insertion[2] = sc.nextLine();
-					System.out.println("\t\tDigite o email do professor:");
-					insertion[3] = sc.nextLine();
-					System.out.println("\t\tDigite a senha do professor:");
-					insertion[4] = sc.nextLine();
-					System.out.println("\t\tDigite o departamento do professor:");
-					insertion[5] = sc.nextLine();
-					System.out.println("\t\tDigite o instituto do professor:");
-					insertion[6] = sc.nextLine();
-					
-					Professor toAdd = new Professor(insertion);
-					_users.add(toAdd);
-					
-				}
-				else if (choice == 12){
-					insertion[0] = 3000000 + "";
-					System.out.println("\t\tDigite o nome do aluno:");
-					insertion[1] = sc.nextLine();
-					System.out.println("\t\tDigite o documento do aluno:");
-					insertion[2] = sc.nextLine();
-					System.out.println("\t\tDigite o email do aluno:");
-					insertion[3] = sc.nextLine();
-					System.out.println("\t\tDigite a senha do aluno:");
-					insertion[4] = sc.nextLine();
-					System.out.println("\t\tDigite o curso do aluno:");
-					insertion[5] = sc.nextLine();
-					
-					Student toAdd = new Student(insertion);
-					_users.add(toAdd);
-
-				}
-				else if (choice == 13){
-					insertion[0] = 2000000 + "";
-					System.out.println("\t\tDigite o nome da pessoa da comunidade:");
-					insertion[1] = sc.nextLine();
-					System.out.println("\t\tDigite o documento do pessoa da comunidade:");
-					insertion[2] = sc.nextLine();
-					System.out.println("\t\tDigite o email do pessoa da comunidade:");
-					insertion[3] = sc.nextLine();
-					System.out.println("\t\tDigite a senha do pessoa da comunidade:");
-					insertion[4] = sc.nextLine();
-					System.out.println("\t\tDigite o trabalho do pessoa da comunidade:");
-					insertion[5] = sc.nextLine();
-					
-					Community toAdd = new Community(insertion);
-					_users.add(toAdd);
-					
-				}		
+			if(Data_TextField.getText() != "")
+			{
+				String date = Data_TextField.getText();
+				TheLibrary.sysTime = date;
+				TheLibrary._loans = ReadCSV.ReadCSVLoan(date);
+				Data_TextField.setDisable(true);
+				SaveDate_Btn.setVisible(false);
+				
+				Users_Btn.setDisable(false);
+				Books_Btn.setDisable(false);
+				Loans_Btn.setDisable(false);
 			}
-			else if(choice == 2){
-				System.out.println("Digite o numero de identificação do livro:");
-				insertion[0] = sc.nextLine();
-				System.out.println("\t\tDigite o nome do livro:");
-				insertion[1] = sc.nextLine();
-				System.out.println("\t\tDigite o tipo do livro(1 - Academico; 2 - Texto Geral):");
-				insertion[2] = sc.nextLine();
-				System.out.println("\t\tDigite o autor do livro:");
-				insertion[3] = sc.nextLine();
-				System.out.println("\t\tDigite a editora do livro:");
-				insertion[4] = sc.nextLine();
-				System.out.println("\t\tDigite a edição do livro:");
-				insertion[5] = sc.nextLine();
-				System.out.println("\t\tDigite o número de páginas do livro:");
-				insertion[6] = sc.nextLine();
-				insertion[7] = insertion[0] +","+insertion[1] +","+insertion[2] +","+
-						insertion[3] +","+insertion[4] +","+insertion[5] +","+insertion[6];
-				Book toAdd = new Book(insertion[7]);
-				_books.add(toAdd);
+		});
+		
+		Users_Btn.setOnAction((event) -> {
+			UsersLayout.setVisible(true);
+			BooksLayout.setVisible(false);
+			LoansLayout.setVisible(false);
+		});
+		
+		Books_Btn.setOnAction((event) -> {
+			UsersLayout.setVisible(false);
+			BooksLayout.setVisible(true);
+			LoansLayout.setVisible(false);
+		});
+		
+		Loans_Btn.setOnAction((event) -> {
+			UsersLayout.setVisible(false);
+			BooksLayout.setVisible(false);
+			LoansLayout.setVisible(true);
+		});
+		
+		StudentReg_Btn.setOnAction((event) -> {
+			RegisterArea_Vbox.setVisible(true);
+			Curso_Hbox.setVisible(true);
+			Departamento_Hbox.setVisible(false);
+			Instituto_Hbox.setVisible(false);
+			Emprego_Hbox.setVisible(false);
+			_typeUser = 1;
+			
+		});
+		
+		ProfessorReg_Btn.setOnAction((event) -> {
+			RegisterArea_Vbox.setVisible(true);
+			Curso_Hbox.setVisible(false);
+			Departamento_Hbox.setVisible(true);
+			Instituto_Hbox.setVisible(true);
+			Emprego_Hbox.setVisible(false);
+			_typeUser = 2;
+		});
+		
+		CommunityReg_Btn.setOnAction((event) -> {
+			RegisterArea_Vbox.setVisible(true);
+			Curso_Hbox.setVisible(false);
+			Departamento_Hbox.setVisible(false);
+			Instituto_Hbox.setVisible(false);
+			Emprego_Hbox.setVisible(true);
+			_typeUser = 3;
+		});
+		
+		ShowAllUsers_Btn.setOnAction((event) -> {
+			
+		});
+		
+		RegisterUsers_Btn.setOnAction((event) -> {
+			
+			if(_typeUser == 1)
+			{
+				Student st = new Student(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+								EmailUser_TextField.getText(), SenhaUser_TextField.getText(), CursoUser_TextField.getText());
+				//add na lista
 			}
-			else if(choice == 3){
-				System.out.println("Digite o numero de identificação do empréstimo:");
-				insertion[0] = sc.nextLine();
-				System.out.println("\t\tDigite o nome do livro: ");
-				insertion[1] = sc.nextLine();
-				System.out.println("\t\tDigite o tipo do livro(1 - Academico; 2 - Texto Geral):");
-				insertion[2] = sc.nextLine();
-				System.out.println("\t\tDigite o autor do livro: ");
-				insertion[3] = sc.nextLine();
-				System.out.println("\t\tDigite a editora do livro:");
-				insertion[4] = sc.nextLine();
-				System.out.println("\t\tDigite a edição do livro:");
-				insertion[5] = sc.nextLine();
-				System.out.println("\t\tDigite o número de páginas do livro:");
-				insertion[6] = sc.nextLine();
+			else if(_typeUser == 2)
+			{
+				Professor pf = new Professor(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+								EmailUser_TextField.getText(), SenhaUser_TextField.getText(), InstitutoUser_TextField.getText(), 
+								DepartamentoUser_TextField.getText());
+				//add na lista
+			}
+			else
+			{
+				Community cm = new Community(TheLibrary._id, NomeUser_TextField.getText(), DocumentoUser_TextField.getText(), 
+						EmailUser_TextField.getText(), SenhaUser_TextField.getText(), EmpregoUser_TextField.getText());
+				//add na lista 
 			}
 			
-		}while(choice == 0);
+			NomeUser_TextField.clear();
+			DocumentoUser_TextField.clear();
+			EmailUser_TextField.clear();
+			SenhaUser_TextField.clear();
+			EmpregoUser_TextField.clear();
+			InstitutoUser_TextField.clear();
+			DepartamentoUser_TextField.clear();
+			CursoUser_TextField.clear();
+		});
 		
-		WriteCSV.WriteCSVUsers(_users);
+		ShowAllBooks_Btn.setOnAction((event) -> {
+			
+		});
 		
+		RegisterBooks_Btn.setOnAction((event) -> {
+			
+			Book bk = new Book(Integer.parseInt(IDBook_TextField.getText()), NomeBook_TextField.getText(), Integer.parseInt(TipoBook_TextField.getText()),
+								AutorBook_TextField.getText(), EditoraBook_TextField.getText(), Integer.parseInt(EdicaoBook_TextField.getText()));	
+			//add na lista
+			
+			IDBook_TextField.clear();
+			NomeBook_TextField.clear();
+			TipoBook_TextField.clear();
+			AutorBook_TextField.clear();
+			EditoraBook_TextField.clear();
+			EdicaoBook_TextField.clear();
+		});
 		
+		ShowAllLoans_Btn.setOnAction((event) -> {
+			
+		});
+		
+		RegisterLoans_Btn.setOnAction((event) -> {
+			
+			/*String us = 
+			TheLibrary._users
+			.stream()
+			.filter(us -> us.getID() == Integer.parseInt(IDUsuarioLoan_TextField.getText()))
+			.limit(1)
+			.getClass();
+			*/
+			//add na lista
+			
+			IDUsuarioLoan_TextField.clear();
+			IDLivroLoan_TextField.clear();
+		});
 	}
-
 }

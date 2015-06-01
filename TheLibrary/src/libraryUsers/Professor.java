@@ -14,7 +14,7 @@ public class Professor extends User{
 		this.setLoans(new ArrayList<Loan>(6));
 	}
 	
-	Professor(int id, String name, String doc, String email, String password, String institute, String department) {
+	public Professor(int id, String name, String doc, String email, String password, String institute, String department) {
 		super(id, name, doc, email, password);
 		this.setLoans(new ArrayList<Loan>(6));
 		this.setInstitute(institute);

@@ -7,9 +7,8 @@ public class Book {
 	private String	 _author;
 	private String	 _publisher;
 	private int		 _edition;
-	private int 	 _pages;
 	
-	public Book(int ID, String Title, int Type, String Publisher, String Author, int Edition, int Pages) //int Quantity)
+	public Book(int ID, String Title, int Type, String Publisher, String Author, int Edition) //int Quantity)
 	{
 		this._id 		= ID;
 		this._title 	= Title;
@@ -17,7 +16,6 @@ public class Book {
 		this._author 	= Author;
 		this._publisher	= Publisher;
 		this._edition 	= Edition;
-		this._pages 	= Pages;
 		
 	}
 	
@@ -30,12 +28,11 @@ public class Book {
         this._author = values[3];
         this._publisher = values[4];
         this._edition = Integer.parseInt(values[5]);
-        this._pages = Integer.parseInt(values[6]);
 	}
 
 	public String toString(){
 		return "" + this._id + "," + this._title + "," + this._type + "," +this._author +
-				"," + this._publisher + "," + this._edition + "," + this._pages;
+				"," + this._publisher + "," + this._edition;
 	} 
 	
 	//Getters and Setter

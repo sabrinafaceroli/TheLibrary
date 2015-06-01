@@ -8,8 +8,9 @@ public class Student extends User{
 	private String _course;
 	private static final int totalLendDays = 15;
 	
-	Student(int id, String name, String doc, String email, String password) {
+	public Student(int id, String name, String doc, String email, String password, String course) {
 		super(id, name, doc, email, password);
+		this._course = course;
 		this.setLoans(new ArrayList<Loan>(4));
 	}
 	
