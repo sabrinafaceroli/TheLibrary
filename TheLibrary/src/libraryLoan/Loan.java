@@ -39,8 +39,6 @@ public class Loan {
         date = values[3].split("/");
         this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
         this._isLate = this.checkTardiness(SystemTime);
-        
-        
     }
 	
 	private boolean checkTardiness(String SystemTime){
