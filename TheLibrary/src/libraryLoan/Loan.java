@@ -49,7 +49,15 @@ public class Loan {
 	public int getBook(){return this._bookID;}
 	
 	public String toString(){
-		return this._bookID + "," + this._userID + "," + this._lentDate + "," 
-				+ this._deliveryDate + "," +this._isLate; 
+		String lentdate, deliverydate;
+		lentdate = _lentDate.get(GregorianCalendar.YEAR) + "/" +_lentDate.get(GregorianCalendar.MONTH) + "/"
+				+ _lentDate.get(GregorianCalendar.DAY_OF_MONTH);
+		
+		deliverydate = _deliveryDate.get(GregorianCalendar.YEAR) + "/" +_deliveryDate.get(GregorianCalendar.MONTH) + "/"
+				+ _deliveryDate.get(GregorianCalendar.DAY_OF_MONTH);
+		
+		
+		return this._bookID + "," + this._userID + "," + lentdate + "," 
+				+ deliverydate + "," +this._isLate; 
 	}
 }
