@@ -35,9 +35,9 @@ public class Loan {
         this._bookID = Integer.parseInt(values[0]);
         this._userID = Integer.parseInt(values[1]);
         date = values[2].split("/");
-        this._lentDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
+        this._lentDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
         date = values[3].split("/");
-        this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[2]), Integer.parseInt(date[1]), Integer.parseInt(date[0]));
+        this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
         this._isLate = this.checkTardiness(SystemTime);
         
         
