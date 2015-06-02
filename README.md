@@ -4,7 +4,7 @@ Trabalho 3 - Programação Orientada a Objeto / 1º Semestre/2015 - ICMC/USP Sã
 The most awesome Library System ever!
 Então, é simples.
 
-Para rodar o programa basta executar o .jar e ele magicamente aparecerá para você!
+Para rodar o programa basta executar o .jar usando java -jar Trabalho 3 - POO.jar e ele magicamente aparecerá para você!
 
 Logo que o programa abrir, existe um box e um botão no canto superior direito para inserção da data para que tudo funcione. O formato dessa data (assim como em todas as outras do programa) é YYYY/MM/DD.
 
