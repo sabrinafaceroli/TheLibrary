@@ -23,8 +23,6 @@ public class Loan {
 		this._lentDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
 		this._deliveryDate = new GregorianCalendar(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2])+n);
 		this._isLate = this.checkTardiness(lentDate);
-		
-		System.out.println(this._lentDate);
 	}
 	
 	public Loan(String csv, String SystemTime){

@@ -67,7 +67,6 @@ public class ReadCSV {
 	        		list.add(new Professor(val));
 	        	else if(val[0].equals("Student"))
 	        		list.add(new Student(val));
-	        	System.out.println("user: " + val);
 	        }
 	        
 	        br.close();
