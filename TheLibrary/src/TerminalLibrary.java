@@ -54,6 +54,7 @@ public class TerminalLibrary{
 				Data_TextField.setDisable(true);
 				SaveDate_Btn.setVisible(false);
 				
+				
 				Users_Btn.setDisable(false);
 				Books_Btn.setDisable(false);
 				Loans_Btn.setDisable(false);

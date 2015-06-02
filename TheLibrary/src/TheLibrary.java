@@ -20,6 +20,7 @@ public class TheLibrary extends Application {
 	static ArrayList<User> _users = new ArrayList<User>();
 	static ArrayList<Loan> _loans = new ArrayList<Loan>();
 	
+	
 	@Override
 	public void start(Stage primaryStage) 
 	{
