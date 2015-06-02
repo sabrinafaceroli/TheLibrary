@@ -206,7 +206,14 @@ public class TerminalLibrary{
 		});
 		
 		ReturnBook_Btn.setOnAction((event) -> {
-			//TODO: CONFIGURE O BOTÃO AQUIIIIIIIIIIIIIIIIII
+			int removeIndex = 0;
+			for (int i = 0; i < TheLibrary._loans.size(); i++) {
+				if(TheLibrary._loans.get(i).getBook() == Integer.parseInt(IDLivroLoan_TextField.getText()) 
+						&& TheLibrary._loans.get(i).getUser() == Integer.parseInt(IDUsuarioLoan_TextField.getText()) )
+					removeIndex = i;
+			}
+			if(removeIndex != 0)
+				TheLibrary._loans.remove(removeIndex);
 		});
 	}
 }
