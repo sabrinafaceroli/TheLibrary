@@ -37,7 +37,7 @@ public class ReadCSV {
 		
 		try
 		{
-			BufferedReader br = new BufferedReader(new FileReader("src/libraryloans.csv"));
+			BufferedReader br = new BufferedReader(new FileReader("src/libraryloan.csv"));
 	        String data;
 	        while((data = br.readLine()) != null) 
 	            list.add(new Loan(data, SystemTime));
