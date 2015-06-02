@@ -4,6 +4,8 @@ Trabalho 3 - Programação Orientada a Objeto / 1º Semestre/2015 - ICMC/USP Sã
 The most awesome Library System ever!
 Então, é simples.
 
+Para rodar o programa basta executar o .jar e ele magicamente aparecerá para você!
+
 Logo que o programa abrir, existe um box e um botão no canto superior direito para inserção da data para que tudo funcione. O formato dessa data (assim como em todas as outras do programa) é YYYY/MM/DD.
 
 Então, os três botões de Usuários, Livros e Empréstimos te mostram as opções de cadastramento e listagem de cada uma delas. (Detalhe, para enxergar a busca de Usuários é necessário primeiro clicar em algum dos tipos ao lado do botão de busta).
